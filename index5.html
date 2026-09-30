@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Paradise</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #24112f;
+    color: #fff4e6;
+}
+
+.box {
+    width: 380px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #4a234f;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px #120817;
+}
+
+h1 {
+    color: #ffd6a5;
+}
+
+p {
+    color: #ffe8d6;
+}
+
+input, select {
+    width: 85%;
+    padding: 10px;
+    margin: 6px;
+    border: none;
+    border-radius: 7px;
+    background: #fff4e6;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 12px;
+    border: none;
+    border-radius: 20px;
+    background: #e9a66f;
+    color: #24112f;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ffd6a5;
+}
+
+#result {
+    padding: 12px;
+    background: #35183d;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🏨 Hotel Paradise</h1>
+<p>✨ Stay • Relax • Enjoy ✨</p>
+
+<input id="name" placeholder="👤 Your Name">
+<input id="phone" placeholder="📱 Phone Number">
+<input id="email" placeholder="📧 Email">
+<input id="guests" type="number" placeholder="👥 Number of Guests">
+<input id="date" type="date">
+
+<select id="room">
+<option value="1000">🛏️ Classic Room - ₹1000</option>
+<option value="1500">🌟 Premium Room - ₹1500</option>
+<option value="2000">👑 Royal Suite - ₹2000</option>
+</select>
+
+<input id="days" type="number" placeholder="🌙 Number of Days">
+
+<button onclick="book()">BOOK NOW</button>
+
+<p id="result">Your booking will appear here</p>
+
+</div>
+
+<script>
+function book() {
+
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let email = document.getElementById("email").value;
+let guests = document.getElementById("guests").value;
+let date = document.getElementById("date").value;
+let room = document.getElementById("room");
+let days = document.getElementById("days").value;
+
+let total = room.value * days;
+
+if(name == "" || phone == "" || email == "" ||
+guests == "" || date == "" || days == "")
+document.getElementById("result").innerHTML =
+"⚠️ Please fill all details";
+
+else
+document.getElementById("result").innerHTML =
+"🎉 Booking Confirmed!<br>" +
+"👤 " + name + "<br>" +
+"📱 " + phone + "<br>" +
+"📅 " + date + "<br>" +
+"🛏️ " + room.options[room.selectedIndex].text + "<br>" +
+"👥 Guests: " + guests + "<br>" +
+"🌙 Days: " + days + "<br>" +
+"💰 Total: ₹" + total;
+}
+</script>
+
+</body>
+</html>
